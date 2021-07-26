@@ -21,12 +21,9 @@ const EditListModal: FC<EditListModalProps> = ({ list }) => {
     if (listName.trim() === "") {
       return alert("List name is required");
     }
-    // treba naci ako je isto ime
     if (listName.trim() === list.name) {
       return alert("List name is the same as before!");
     }
-    // onda odraditi ukoliko nije isto
-    // prvo ide update i onda iskljucivanje edita
     dispatch(updateList(list.id, listName.trim()));
     dispatch(setListToEdit(""));
     dispatch(setNotification(`List "${list.name}" updated`));
